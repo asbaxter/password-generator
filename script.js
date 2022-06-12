@@ -1,5 +1,9 @@
 // Assignment code here
 function generatePassword(){
+
+  var errors = true;
+
+  while (errors === true){
   // ------------------------ user prompts --------------------------
     var passwordLength = prompt("How many characters would you like you password to be? Pick a number 8 - 128.");
   
@@ -8,7 +12,7 @@ function generatePassword(){
     var lowercase = confirm("Would you like for your password to contain lowercase letters.?");
     var uppercase = confirm("would you like for your password to contain uppercase letters?");
     var numerical = confirm("would you like for your password to contain numbers?");
-    var special = confirm("would you like for your password to contain specail characters ");
+    var special = confirm("would you like for your password to contain special characters ");
 
     // -------------------- arrays containing character options -------------------------------------------
     var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
@@ -16,7 +20,7 @@ function generatePassword(){
     var specialCharacters = ['@','%','+','\\','/',"'",'!','#','$','^','?', ':', ',', ')', '(', '}', '{', ']', '[', '~', '-', '_', '.'];
     var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   
-  if (lowercase === true || uppercase === true || numerical === true || special === true){
+    if (lowercase === true || uppercase === true || numerical === true || special === true){
 
     var password = [];  
     
@@ -47,21 +51,24 @@ function generatePassword(){
       i = i - 1;
      }
     }
+    errors = false;
     return password;
-  }
-  else {
-    alert("ERROR: The generator needs at least one character type selected, hit the generate password button to try again.")
-  }
+    }
+  // ------------------------ Error messages for unaccepted user inputs ----------------------------
+    else {
+      alert("ERROR: The generator needs at least one character type selected.")
+    }
   }
   else if (passwordLength < 8) {
-    alert("ERROR: The Number of characters must be more than 8, hit generate password to try again")
+    alert("ERROR: The Number of characters must be more than 8.")
   }
   else if (passwordLength > 128) {
-    alert("ERROR: The Number of characters must be less than 128, hit generate password to try again")
+    alert("ERROR: The Number of characters must be less than 128.")
   }
   else (
-    alert("ERROR: password length needs to be a numeric value, hit generate password to try again")
+    alert("ERROR: password length needs to be a numeric value.")
   )
+}
 }
 
 // Get references to the #generate element
