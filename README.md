@@ -3,7 +3,6 @@
 - https://asbaxter.github.io/password-generator/
 
 The goal of this project was to create a fully functional password generator that could create a unique password within the user's parameters. The user has the option to select password length of 8 - 128 characters and the choice of capital, lowercase, special, and numerical characters or any combination of those options. 
-
 # User Story
 AS AN employee with access to sensitive data
 I WANT to randomly generate a password that meets certain criteria
