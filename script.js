@@ -2,6 +2,9 @@
 function generatePassword(){
   // ------------------------ user prompts --------------------------
     var passwordLength = prompt("How many characters would you like you password to be? Pick a number 8 - 128.");
+  
+  if (passwordLength >= 8 && passwordLength <= 128){
+
     var lowercase = confirm("Would you like for your password to contain lowercase letters.?");
     var uppercase = confirm("would you like for your password to contain uppercase letters?");
     var numerical = confirm("would you like for your password to contain numbers?");
@@ -15,7 +18,8 @@ function generatePassword(){
 
 
   // --------------------- loop runing program for length of the password ---------------------
-  var password = [];  
+  
+    var password = [];  
   
   for (var i = 0; i < passwordLength; i++){
 
@@ -38,12 +42,16 @@ function generatePassword(){
       password = password + numericCharacters[character];
      }
      else {
-      // ----------- loop continues if random number picks unpickable option based off user choice ---------------------
+      // ----------- this allows the loop to continue if random number picks unpickable option based off user choice ---------------------
       i = i - 1;
      }
     }
     return password;
-};
+  }
+  else {
+    alert("password length must be a number between 8 and 128 characters, please try again")
+  }
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -54,7 +62,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-  
 };
 
 // Add event listener to generate button
