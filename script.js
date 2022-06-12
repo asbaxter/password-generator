@@ -1,5 +1,5 @@
 // Assignment code here
-function generatePassword(password){
+function generatePassword(){
   // ------------------------ user prompts --------------------------
     var passwordLength = prompt("How many characters would you like you password to be? Pick a number 8 - 128.");
     var lowercase = confirm("Would you like for your password to contain lowercase letters.?");
@@ -15,32 +15,34 @@ function generatePassword(password){
 
 
   // --------------------- loop runing program for length of the password ---------------------
-    for (var i = 0; i < passwordLength; i++){
+  var password = [];  
+  
+  for (var i = 0; i < passwordLength; i++){
 
      var characterType = Math.floor(Math.random() * 4);
 
      if (characterType === 0 && lowercase === true){
         var character = Math.floor(Math.random() * 26);
-        console.log(lowerCasedCharacters[character]);
+        password = password +  lowerCasedCharacters[character];
      }
      else if (characterType === 1 && uppercase === true){
       var character = Math.floor(Math.random() * 26);
-        console.log(upperCasedCharacters[character]);
+      password = password + upperCasedCharacters[character];
      }
      else if (characterType === 2 && special === true){
       var character = Math.floor(Math.random() * 23);
-        console.log(specialCharacters[character]);
+      password = password + specialCharacters[character];
      }
      else if (characterType === 3 && numerical === true){
       var character = Math.floor(Math.random() * 10);
-        console.log(numericCharacters[character]);
+      password = password + numericCharacters[character];
      }
      else {
       // ----------- loop continues if random number picks unpickable option based off user choice ---------------------
       i = i - 1;
      }
-
     }
+    return password;
 };
 
 // Get references to the #generate element
